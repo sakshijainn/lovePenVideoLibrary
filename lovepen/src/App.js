@@ -1,20 +1,21 @@
 import React from 'react'
-import Header from './components/Header/Header'
 import "./App.css"
-import Sidebar from './components/Sidebar/Sidebar';
-import RecommendedVideos from "./components/RecommendedVideos/RecommendedVideos.jsx"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Main from './components/Main/Main';
+import Watch from "./components/Watch/Watch.jsx"
 const App = () => {
   return (
-    <div className ="App">
+    
+      <Router>
+        <Routes>
+        <Route path="/watch/:id" element= {<Watch/>}></Route>
+        <Route path="/" element={<Main/>}></Route>
+        
+        </Routes>
+        </Router>
 
-      <Header/>
 
-      <div className="app_page">
-      <Sidebar/>
-      <RecommendedVideos/>
-      </div>
-      
-    </div>
+ 
    
   )
 }

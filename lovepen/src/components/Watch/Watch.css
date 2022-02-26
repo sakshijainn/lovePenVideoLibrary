@@ -1,0 +1,37 @@
+.watch-screen
+{
+    display: flex;
+    padding-top: 3.7rem;
+    
+}
+
+.central-watch-screen-sidebar
+{
+    width:20%;
+    margin: 1rem;
+    height: 100%;
+    flex-direction: column;
+}
+
+
+.central-watch-screen
+{
+    width:60%;
+    margin: 1rem;
+    height: 100%;
+    flex-direction: column;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+
+
+@media screen and (max-width:600px)
+{
+    .central-watch-screen
+    {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+}

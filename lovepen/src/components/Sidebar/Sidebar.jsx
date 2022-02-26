@@ -5,7 +5,7 @@ import {AiFillHome,AiOutlineFire,AiTwotoneMail,AiFillLike,AiFillDislike} from "r
 import {FaClock} from "react-icons/fa"
 const Sidebar = () => {
     return (
-        <div className="sidebar">
+        <div className="sidebarr">
            
             <SidebarRow selected Icon={AiFillHome} title ="Home"/>
             <SidebarRow Icon={AiOutlineFire} title ="Trending"/>

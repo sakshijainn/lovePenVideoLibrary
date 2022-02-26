@@ -1,9 +1,9 @@
-.sidebar 
+.sidebarr 
 {
     flex:0.2;
 }
 
-.sidebar >hr 
+.sidebarr >hr 
 {
     height: 1px;
     border: 0;
