@@ -6,9 +6,13 @@ import { Link } from "react-router-dom";
 
 function VideoMetaData() {
   const {
-    state: { videos },
-    dispatch,
+    state: { videos ,likedVideos }, videoDispatch
   } = useVideo();
+
+  console.log(likedVideos)
+
+  
+
 
   const [show, setShow] = useState(false);
 
@@ -31,20 +35,30 @@ function VideoMetaData() {
             </p>
           </div>
           <div class="btn-container">
-            <Link to="/liked-videos">
-              <button >
+            <Link to="/liked">
+              <button onClick={() => videoDispatch({ type: "LIKE", payload: id })} >
                 like
               </button>
             </Link>
 
-            <Link to="/watchList">
-              <button
+            <Link to="/disliked">
+              <button onClick={() => videoDispatch({ type: "DISLIKE", payload: id })} >
+                dislike
+              </button>
+            </Link>
+
+
+            <Link to="/watch">
+              <button onClick={() => videoDispatch({ type: "WATCH_LATER", payload: id })}
                 
               >
                 Watch <i class="fa fa-clock-o" aria-hidden="true"></i>
               </button>
             </Link>
-            <button>Subscribe</button>
+
+            <Link to="/subscribe">
+            <button onClick={() => videoDispatch({ type: "SUBSCRIBE", payload: id })}>Subscribe</button>
+            </Link>
           </div>
         </div>
       </div>

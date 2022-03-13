@@ -5,7 +5,14 @@ export const VideoContext = createContext();
 
 export function VideoProvider ({ children }) {
   
-  const[state , videoDispatch] = useReducer( videoReducer , {videos:[]})
+  const[state , videoDispatch] = useReducer( videoReducer , 
+    {videos:[],
+    likedVideos:[],
+    watchVideos:[],
+    historyVideos:[],
+    subscribeChannels:[],
+    dislikedVideos:[]
+  })
   
   return (
     <VideoContext.Provider value={{ state , videoDispatch }}>
