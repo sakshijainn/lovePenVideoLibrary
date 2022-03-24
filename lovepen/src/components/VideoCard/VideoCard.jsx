@@ -4,10 +4,14 @@ import axios from "axios";
 import setupMockServer from "../../api/mockserver";
 import "./VideoCard.css"
 import {Link} from "react-router-dom"
+import { useParams } from "react-router";
 const VideoCard = () => {
 
-    const {state :{videos}, videoDispatch} = useVideo();
+    const {state :{videos,keyword}, videoDispatch} = useVideo();
+    const{state} = useVideo();
     console.log(videos)
+    console.log(keyword)
+    const { id } = useParams();
    
 
     useEffect(() => {
@@ -24,9 +28,27 @@ const VideoCard = () => {
         })();
       }, []);
 
+
+      const FilteredData = (state, data) => {
+
+        let getVideos = [...data];
+
+        if (state.keyword) {
+          getVideos = getVideos.filter((video) => video.title.toLowerCase().includes(state.keyword));
+        }
+
+        return getVideos;
+    }
+      
+          const filteredVideos = FilteredData(state, state.videos)
+
+          console.log(filteredVideos)
+
+    
+
     return (
         <>
-             {videos.map((video)=>(
+             {filteredVideos.map((video)=>(
                 <div className="videoCard">
                   <Link to = {`/watch/${video.id}`}>
                     <img className="videoCard_thumbnail" src = {video.thumbnail}/>

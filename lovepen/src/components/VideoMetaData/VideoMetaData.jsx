@@ -3,21 +3,16 @@ import "./VideoMetaData.css";
 import { useVideo } from "../../Context/VideoContext"
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
+import PlaylistModal from "../PlaylistModal/PlaylistModal";
 
 function VideoMetaData() {
+
+  const[openModal, setOpenModal] = useState(false)
   const {
     state: { videos ,likedVideos }, videoDispatch
   } = useVideo();
 
   console.log(likedVideos)
-
-  
-
-
-  const [show, setShow] = useState(false);
-
-  const openModal = () => setShow(true);
-  const closeModal = () => setShow(false);
 
   const { id } = useParams();
   const videoMetaDataDetails = videos.find((video) => video.id === id);
@@ -71,7 +66,12 @@ function VideoMetaData() {
           </div>
           <div class="subscriber-content">
             <h5>{videoMetaDataDetails.channel}</h5> <h5>10k Subscribers</h5>
+            
           </div>
+          <div>
+          <button onClick={()=>{setOpenModal(true)}}>ADD TO PLAYLIST</button>
+          </div>
+          {openModal && <PlaylistModal closeModal={setOpenModal} videoId={id} />}
         </div>
        
       </div>

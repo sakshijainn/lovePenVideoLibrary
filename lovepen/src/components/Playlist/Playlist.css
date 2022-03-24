@@ -1,0 +1,35 @@
+.video-iframe
+{
+    height: 200px;
+    width: 300px;
+}
+
+.playlistcard
+{
+    border: 1px solid black;
+    padding: 2rem;
+    border: 10px;
+}
+
+.buttons-container
+{
+    width: 200px;
+margin: 0 auto;
+display: inline;
+
+}
+
+.buttons-container .buttons 
+{
+    width: 200px;
+margin: 0 auto;
+display: inline;}
+
+
+
+.buttons button
+{
+   margin-right: 1rem;
+   margin-left: 1rem;
+   margin-top:0.5rem;
+}

@@ -5,12 +5,20 @@ import {BiSearch,BiUser} from "react-icons/bi"
 import {BsBell} from "react-icons/bs"
 import "./Header.css"
 import SideDrawer from "../SideDrawer/SideDrawer"
+import { useVideo } from '../../Context/VideoContext'
 const Header = () => {
-    const [isOpened, setIsOpened] = useState(false);
+
+  const { state, videoDispatch } = useVideo();
+  const [isOpened, setIsOpened] = useState(false);
   function toggle() {
     setIsOpened((wasOpened) => !wasOpened);
     console.log("open")
   }
+
+  const handleSearch = (e) => {
+    videoDispatch({ type: "SEARCH", payload: e.target.value });
+  };
+
     return (
         <div className="header">
 
@@ -24,8 +32,10 @@ const Header = () => {
             </div>
 
             <div className="header-middle">
-            <input type='text'/>
-            <BiSearch className="search"/>
+            <input type='text' value={state.keyword}
+          onChange={handleSearch}
+          placeholder="search"/>
+            <BiSearch  className="search"/>
             </div>
 
 

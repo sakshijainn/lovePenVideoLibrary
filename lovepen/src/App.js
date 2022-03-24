@@ -9,6 +9,7 @@ import History from "./components/History/History.jsx"
 import Subscribe from "./components/Subscribe/Subscribe.jsx"
 import Disliked from "./components/DisLiked/DisLiked.jsx"
 import Trending from './components/Trending/Trending';
+import PlaylistContainer from './components/PlaylistContainer/PlaylistContainer';
 
 
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
         <Route path ="/history" element ={<History/>}></Route>
         <Route path ="/subscribe" element = {<Subscribe/>}></Route>
         <Route path ="/trending" element ={<Trending/>}></Route>
+        <Route path="/playlist" element={<PlaylistContainer/>}></Route>
         <Route path ="/watch" element ={<WatchLater/>}></Route>
         <Route path ="/liked" element ={<Liked/>} ></Route>
         <Route path ="/disliked" element = {<Disliked/>} ></Route>
