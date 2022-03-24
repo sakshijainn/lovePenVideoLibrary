@@ -36,13 +36,13 @@ const PlaylistModal = ({ closeModal, videoId }) => {
           {playlist.map(({ id, name, videosAdded }) => (
             <div key={id}>
               <p>
-                {" "}
                 {name}
                 <input
-                  type="checkbox"
+                  type="checkbox" 
                   onChange={(e) => checkHandler(e, id, videoId)}
                   checked={findVideo(videoId, videosAdded)}
                 />
+                
               </p>
             </div>
 

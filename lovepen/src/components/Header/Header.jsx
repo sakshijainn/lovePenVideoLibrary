@@ -6,6 +6,7 @@ import {BsBell} from "react-icons/bs"
 import "./Header.css"
 import SideDrawer from "../SideDrawer/SideDrawer"
 import { useVideo } from '../../Context/VideoContext'
+import {Link} from "react-router-dom"
 const Header = () => {
 
   const { state, videoDispatch } = useVideo();
@@ -40,7 +41,9 @@ const Header = () => {
 
 
             <div className ="header-right">
+              <Link to="/login">
             <BiUser className="user"/>
+            </Link>
             </div>
         </div>
     )

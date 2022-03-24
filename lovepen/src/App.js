@@ -10,6 +10,8 @@ import Subscribe from "./components/Subscribe/Subscribe.jsx"
 import Disliked from "./components/DisLiked/DisLiked.jsx"
 import Trending from './components/Trending/Trending';
 import PlaylistContainer from './components/PlaylistContainer/PlaylistContainer';
+import {PrivateRoute} from "./PrivateRoute/PrivateRoute.jsx"
+import Login from './components/Login/Login';
 
 
 const App = () => {
@@ -20,9 +22,12 @@ const App = () => {
         <Route path ="/history" element ={<History/>}></Route>
         <Route path ="/subscribe" element = {<Subscribe/>}></Route>
         <Route path ="/trending" element ={<Trending/>}></Route>
-        <Route path="/playlist" element={<PlaylistContainer/>}></Route>
+        <Route path="/playlist"  element={ <PrivateRoute> <PlaylistContainer /> </PrivateRoute> }/>
+        
+
         <Route path ="/watch" element ={<WatchLater/>}></Route>
         <Route path ="/liked" element ={<Liked/>} ></Route>
+        <Route path="/login" element={<Login/>}></Route>
         <Route path ="/disliked" element = {<Disliked/>} ></Route>
         <Route path="/watch/:id" element= {<Watch/>}></Route>
         <Route path="/" element={<Main/>}></Route>
