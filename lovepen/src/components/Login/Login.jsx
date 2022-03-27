@@ -1,17 +1,24 @@
 import React, { useState } from "react";
 import { useAuth } from "../../Context/AuthContext"
-import { useLocation, useNavigate, Link } from "react-router-dom";
+import { useLocation, useNavigate} from "react-router-dom";
 import "./Login.css";
 
 export default function Login() {
-  const { isUserLogin, loginUserWithCredentials, logout } = useAuth();
+  const { isUserLogin, loginUserWithCredentials} = useAuth();
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
+
   const location = useLocation();
+
+
   console.log(location);
+
   const navigate = useNavigate();
   let from = location.state?.from?.pathname || "/";
+   
   console.log(from)
+
+  console.log(isUserLogin)
 
   return (
     <>
@@ -39,14 +46,10 @@ export default function Login() {
     </>
   );
 
-  function handleSubmit(e) {
-    e.preventDefault();
-  }
-
+ 
   function loginHandler() {
     // 1: login
     // setLogin((isUserLogin) => !isUserLogin);
-
     loginUserWithCredentials(userName, password);
 
     // 2: navigate to the page we were going to before you sent us to /login page
